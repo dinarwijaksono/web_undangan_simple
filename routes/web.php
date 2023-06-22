@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DemoPage_controller;
 use App\Http\Controllers\Home_controller;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* Home_controller */
+
 Route::get('/', [Home_controller::class, 'index']);
+/* end Home_controller */
+
+
+/* DemoPage_controller */
+Route::get('/Demo/tema_1', [DemoPage_controller::class, 'tema_1']);
+/* end DemoPage_controller */

@@ -72,7 +72,7 @@
 
                 <div class="flex gap-2 p-1">
 
-                    <a href="" class="basis-1/2 block text-[12px] bg-color-3 hover:bg-color-2 text-white p-1 rounded text-center">Lihat
+                    <a href="/Demo/tema_1" class="basis-1/2 block text-[12px] bg-color-3 hover:bg-color-2 text-white p-1 rounded text-center">Lihat
                         demo</a>
                     <a href="" class="basis-1/2 block text-[12px] bg-color-3 hover:bg-color-2 text-white p-1 rounded text-center">Pesan
                         sekarang</a>
