@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Domain\Confirmation_domain;
 use App\Repository\Confirmation_repository;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Type\Integer;
 
 class Confirmation_service
 {
@@ -16,6 +17,7 @@ class Confirmation_service
     }
 
 
+    // create
     public function create(Request $request): void
     {
         $confirmation = new Confirmation_domain();
@@ -25,5 +27,13 @@ class Confirmation_service
         $confirmation->message = $request->message;
 
         $this->confirmationRepository->create($confirmation);
+    }
+
+    // read
+    public function getByProductCodeWithLimit(string $productCode, int $page = 1): object
+    {
+        $listConfirmation = collect($this->confirmationRepository->getByProductCodeWithLimit($productCode, $page));
+
+        return $listConfirmation;
     }
 }

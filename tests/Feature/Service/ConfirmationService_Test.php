@@ -39,4 +39,24 @@ class ConfirmationService_Test extends TestCase
             'message' => $request->message,
         ]);
     }
+
+
+
+    public function test_getByProductCodeWithLimit()
+    {
+        $request = new Request();
+        $request['productCode'] = 'Test-1';
+        $request['name'] = 'example-' . mt_rand(1, 9999);
+        $request['confirmation'] = 'Belum pasti';
+        $request['message'] = 'selamat ya kalian berdua, semoga sakinah dan mawahdah' . mt_rand(1, 9999);
+
+        $this->confimationService->create($request);
+
+        $response = $this->confimationService->getByProductCodeWithLimit($request->productCode);
+
+        $this->assertIsObject($response);
+        $this->assertNotEmpty($response);
+
+        dd($response);
+    }
 }

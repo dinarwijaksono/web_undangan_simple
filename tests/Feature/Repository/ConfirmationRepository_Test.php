@@ -50,9 +50,11 @@ class ConfirmationRepository_Test extends TestCase
 
         $this->confirmationRepository->create($confirmation);
 
-        $response = $this->confirmationRepository->getByProductCode($confirmation->productCode);
+        $response = $this->confirmationRepository->getByProductCodeWithLimit($confirmation->productCode);
 
         $this->assertIsObject($response);
         $this->assertNotEmpty($response);
+
+        // dd($response);
     }
 }

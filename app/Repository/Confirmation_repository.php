@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Domain\Confirmation_domain;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Type\Integer;
 
 class Confirmation_repository
 {
@@ -22,12 +23,17 @@ class Confirmation_repository
 
 
     // read
-    public function getByProductCode(string $productCode): object
+    public function getByProductCodeWithLimit(string $productCode, int $page): object
     {
         $confirmation = DB::table('confirmation_of_attendances')
-            ->select('product_code', 'name', 'confirmation', 'message', 'created_at')
             ->where('product_code', $productCode)
-            ->get();
+            ->orderBy('created_at')
+            ->paginate(
+                $perPage = 10,
+                ['product_code', 'name', 'confirmation', 'message', 'created_at'],
+                $pageName = 'page',
+                $page
+            );
 
         return $confirmation;
     }
