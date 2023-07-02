@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>web undangan</title>
+    <title>Momen Indah</title>
 
     <link rel="stylesheet" href="/asset/tailwind/output.css">
 
@@ -14,7 +14,7 @@
 <body class="bg-color-4 ">
 
     <nav class="p-2 " style="background-color: #222831; color: #EEEEEE;">
-        <h1><b>Buat undangan</b></h1>
+        <h1><b>MOMEN INDAH</b></h1>
     </nav>
 
     <main style="min-height: 900px;">
@@ -28,7 +28,7 @@
 
 
         <section class="px-2 py-20 text-center">
-            <h2 class="font-bold underline mb-4">KENAPA HARUS DI BUATUNDANGAN</h2>
+            <h2 class="font-bold underline mb-4">KENAPA HARUS DI MOMENINDAH</h2>
 
             <div class="mb-2 bg-green-300 p-2">
                 <h4 class="font-bold ">HARGA MURAH</h4>
@@ -59,13 +59,13 @@
             <div class="bg-white shadow-lg mb-2 p-1">
                 <div class="flex">
                     <div class="basis-1/3 p-1">
-                        <img src="" alt="gambar" class="-w-full bg-slate-500" style="height: 200px;">
+                        <img src="/asset/img/tema-1.png" alt="gambar" class="bg-slate-500" style="height: 200px; width: 120px;">
                     </div>
 
                     <div class="basis-2/3 p-1 pt-7">
-                        <p class="font-bold mb-4">Tema 1</p>
-                        <p>Dilihat 1000</p>
-                        <p>Dipesan 421</p>
+                        <p class="font-bold mb-4">Clean Slate Pink Orange</p>
+                        <!-- <p>Dilihat 1000</p> -->
+                        <!-- <p>Dipesan 421</p> -->
                         <p>Harga Rp 100.000</p>
                     </div>
                 </div>

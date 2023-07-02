@@ -40,6 +40,25 @@ class ConfirmationRepository_Test extends TestCase
     }
 
 
+    public function test_getByProductCodeWithLimit()
+    {
+        $confirmation = new Confirmation_domain();
+        $confirmation->productCode = 'test-repo';
+        $confirmation->name = 'example-' . mt_rand(1, 9999);
+        $confirmation->confirmation = 'Belum pasti';
+        $confirmation->message = 'selamat ya, ' . mt_rand(1, 9999);
+
+        $this->confirmationRepository->create($confirmation);
+
+        $response = $this->confirmationRepository->getByProductCodeWithLimit($confirmation->productCode, 1);
+
+        $this->assertIsObject($response);
+        $this->assertNotEmpty($response);
+
+        // dd($response);
+    }
+
+
     public function test_getByProductCode()
     {
         $confirmation = new Confirmation_domain();
@@ -50,11 +69,11 @@ class ConfirmationRepository_Test extends TestCase
 
         $this->confirmationRepository->create($confirmation);
 
-        $response = $this->confirmationRepository->getByProductCodeWithLimit($confirmation->productCode);
+        $response = $this->confirmationRepository->getByProductCode($confirmation->productCode);
 
         $this->assertIsObject($response);
         $this->assertNotEmpty($response);
 
-        // dd($response);
+        dd($response);
     }
 }

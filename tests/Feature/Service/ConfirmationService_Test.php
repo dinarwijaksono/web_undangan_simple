@@ -10,7 +10,7 @@ use Tests\TestCase;
 
 class ConfirmationService_Test extends TestCase
 {
-    protected $confimationService;
+    protected $confirmationService;
 
     public function setUp(): void
     {
@@ -18,7 +18,7 @@ class ConfirmationService_Test extends TestCase
 
         config(['database.default' => 'mysql-test']);
 
-        $this->confimationService = $this->app->make(Confirmation_service::class);
+        $this->confirmationService = $this->app->make(Confirmation_service::class);
     }
 
 
@@ -30,7 +30,7 @@ class ConfirmationService_Test extends TestCase
         $request['confirmation'] = 'Belum pasti';
         $request['message'] = 'selamat ya kalian berdua, ' . mt_rand(1, 9999);
 
-        $this->confimationService->create($request);
+        $this->confirmationService->create($request);
 
         $this->assertDatabaseHas('confirmation_of_attendances', [
             'product_code' => $request->productCode,
@@ -50,13 +50,29 @@ class ConfirmationService_Test extends TestCase
         $request['confirmation'] = 'Belum pasti';
         $request['message'] = 'selamat ya kalian berdua, semoga sakinah dan mawahdah' . mt_rand(1, 9999);
 
-        $this->confimationService->create($request);
+        $this->confirmationService->create($request);
 
-        $response = $this->confimationService->getByProductCodeWithLimit($request->productCode);
+        $response = $this->confirmationService->getByProductCodeWithLimit($request->productCode);
 
         $this->assertIsObject($response);
         $this->assertNotEmpty($response);
 
-        dd($response);
+        // dd($response);
+    }
+
+    public function test_getByProductCode()
+    {
+        $request = new Request();
+        $request['productCode'] = 'Test-1';
+        $request['name'] = 'example-' . mt_rand(1, 9999);
+        $request['confirmation'] = 'Hadir';
+        $request['message'] = 'selamat ya kalian berdua, semoga sakinah dan mawahdah' . mt_rand(1, 9999);
+
+        $this->confirmationService->create($request);
+
+        $response = $this->confirmationService->getByProductCode($request->productCode);
+
+        $this->assertIsObject($response);
+        $this->assertNotEmpty($response);
     }
 }

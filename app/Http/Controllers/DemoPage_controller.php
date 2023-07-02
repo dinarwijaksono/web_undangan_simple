@@ -19,8 +19,10 @@ class DemoPage_controller extends Controller
     {
         $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
-        $this->viewPageService->create('Tema-1', $userAgent);
+        $data['pageCode'] = 'tema-1';
 
-        return view('DemoPage/tema_1');
+        $this->viewPageService->create($data['pageCode'], $userAgent);
+
+        return view('DemoPage/tema_1', $data);
     }
 }

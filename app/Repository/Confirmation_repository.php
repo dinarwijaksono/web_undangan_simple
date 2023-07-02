@@ -37,4 +37,13 @@ class Confirmation_repository
 
         return $confirmation;
     }
+
+
+    public function getByProductCode(string $productCode): object
+    {
+        return DB::table('confirmation_of_attendances')
+            ->where('product_code', $productCode)
+            ->orderByDesc('created_at')
+            ->get();
+    }
 }

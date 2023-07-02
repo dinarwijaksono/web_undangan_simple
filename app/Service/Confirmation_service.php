@@ -36,4 +36,9 @@ class Confirmation_service
 
         return $listConfirmation;
     }
+
+    public function getByProductCode(string $productCode): object
+    {
+        return $this->confirmationRepository->getByProductCode($productCode);
+    }
 }
