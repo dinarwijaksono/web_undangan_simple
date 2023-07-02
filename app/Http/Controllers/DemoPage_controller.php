@@ -25,4 +25,10 @@ class DemoPage_controller extends Controller
 
         return view('DemoPage/tema_1', $data);
     }
+
+
+    public function storeSayying(Request $request)
+    {
+        $request->validate([]);
+    }
 }

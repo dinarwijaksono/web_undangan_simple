@@ -15,6 +15,7 @@
 
     <script src="https://kit.fontawesome.com/c5295564a6.js" crossorigin="anonymous"></script>
 
+    @livewireStyles
 </head>
 
 <body>
@@ -265,31 +266,7 @@
             <h2 data-aos="fade-up" class="title mb-3">Konfirmasi Kehadiran</h2>
 
             <div data-aos="fade-up" class="bg-white p-3 m-2 rounded-md shadow-md border border-zinc-300">
-                <div class="text-start text-[13px] mb-3">
-                    <label for="name" class="block mb-1">Nama</label>
-                    <input class="border border-zinc-300 w-full rounded py-1 px-2" type="text" name="name" id="name" placeholder="Nama">
-                </div>
-
-                <div class="text-start text-[13px] mb-3">
-                    <label class="block mb-1" for="confirmation">Konfirmasi kehadiaran</label>
-                    <select class="border border-zinc-300 w-full rounded py-1 px-2 bg-white" name="confirmation" id="confirmation">
-                        <option selected>Pilih</option>
-                        <option value="Hadir">Hadir</option>
-                        <option value="Belum pasti">Belum pasti</option>
-                        <option value="Tidak hadir">Tidak hadir</option>
-                    </select>
-                </div>
-
-                <div class="text-start text-[13px] mb-3">
-                    <label class="block mb-1" for="message">Ucapan / Doa</label>
-                    <textarea class="border border-zinc-300 w-full rounded py-1 px-2" name="message" id="message" rows="10"></textarea>
-                </div>
-
-                <div class="justify-end text-[13px] flex mb-3">
-                    <div class="basis-1/4">
-                        <button type="button" class="w-full bg-blue-600 px-2 py-1 rounded text-white ">Kirim</button>
-                    </div>
-                </div>
+                @livewire('form-confirmation', ['productCode' =>$pageCode])
             </div>
 
             <div data-aos="fade-up" class="bg-white p-3 m-2 rounded-md shadow-md border border-zinc-300" style="max-height: 400px; overflow-y: scroll;">
@@ -328,7 +305,7 @@
     </main>
 
 
-
+    @livewireScripts
     <script src="/assetForDemo/tema_01/aos/aos.js"></script>
 
     <script>
@@ -363,6 +340,8 @@
         let main = document.getElementById('main');
 
         let buttonOpen = document.getElementById('buttonOpen');
+
+        nav.style.display = 'none';
 
         buttonOpen.addEventListener('click', function() {
             nav.style.display = 'none';
@@ -407,7 +386,6 @@
 
         setInterval(countDown, 1000);
     </script>
-
 </body>
 
 </html>

@@ -12,6 +12,8 @@ class ShowListSaying1 extends Component
 
     public $listSaying;
 
+    protected $listeners = ['showListSaying' => 'render'];
+
     public function booted()
     {
         $confirmationService = App::make(Confirmation_service::class);
