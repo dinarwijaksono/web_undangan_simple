@@ -341,8 +341,6 @@
 
         let buttonOpen = document.getElementById('buttonOpen');
 
-        nav.style.display = 'none';
-
         buttonOpen.addEventListener('click', function() {
             nav.style.display = 'none';
             music.play();
