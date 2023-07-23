@@ -16,7 +16,7 @@ class GuestOnly_middleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has('username')) {
+        if (session()->has('login-status')) {
 
             if (session()->get('login-status') == 'login-true') {
                 return redirect('/Dashboard/index');

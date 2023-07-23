@@ -43,4 +43,6 @@ Route::post('/Auth/logout', [Auth_controller::class, 'logout']);
 
 /* dashboard_controller */
 Route::get('/Dashboard/index', [Dashboard_controller::class, 'index'])->middleware(MemberOnly_middleware::class);
+
+Route::get('/Dashboard/showPageDetail/{pageCode}', [Dashboard_controller::class, 'showPageDetail'])->middleware(MemberOnly_middleware::class);
 /* end dashboard_controller */

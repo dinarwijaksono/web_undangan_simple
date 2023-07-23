@@ -32,4 +32,38 @@ class ViewsPageReposotory_Test extends TestCase
             'user_agent' => $userAgent
         ]);
     }
+
+
+    public function test_getPageByCode()
+    {
+        $pageCode = 'page-' . mt_rand(1, 10);
+        $userAgent = 'test-' . mt_rand(1, 5);
+
+        $this->viewsPage_repository->create($pageCode, $userAgent);
+
+        $response = $this->viewsPage_repository->getPageByCode($pageCode);
+
+        $this->assertIsObject($response);
+        $this->assertTrue(property_exists($response->first(), 'page_code'));
+        $this->assertTrue(property_exists($response->first(), 'user_agent'));
+        $this->assertTrue(property_exists($response->first(), 'created_at'));
+    }
+
+    public function test_getViewsCount()
+    {
+        $pageCode = 'page-' . mt_rand(1, 10);
+        $userAgent = 'test-' . mt_rand(1, 5);
+
+        $this->viewsPage_repository->create($pageCode, $userAgent);
+        $this->viewsPage_repository->create($pageCode, $userAgent);
+        $this->viewsPage_repository->create($pageCode, $userAgent);
+        $this->viewsPage_repository->create($pageCode, $userAgent);
+        $this->viewsPage_repository->create($pageCode, $userAgent);
+
+        $response = $this->viewsPage_repository->getViewsCount();
+
+        $this->assertIsObject($response);
+
+        // dd($response);
+    }
 }

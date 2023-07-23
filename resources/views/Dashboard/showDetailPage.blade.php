@@ -32,24 +32,35 @@
 
         <section class="p-2">
 
+            <div class="flex justify-end">
+                <div class="basis-1/4">
+                    <a href="/Dashboard/index" class="py-1 text-center block w-full rounded bg-red-500 text-white text-[12px]">Kembali</a>
+                </div>
+            </div>
+
+            <h2 class="my-2 underline"><?= $pageCode ?></h2>
+
             <table class="border-collapse border border-slate-400 border-spacing-2 w-full" cellpadding="5">
                 <thead>
                     <tr class="text-center bg-yellow-400">
-                        <td class="border border-slate-400">Halaman</td>
-                        <td class="border border-slate-400">Total</td>
+                        <td class="border border-slate-400">User Agent</td>
+                        <td class="border border-slate-400">Time</td>
+                        <td class="border border-slate-400">Date</td>
                     </tr>
                 </thead>
 
                 <tbody>
 
-                    @foreach ($pageCount as $count)
+                    @foreach ($pageDetail as $page)
                     <tr>
                         <td class="border border-slate-400">
-                            <a href="/Dashboard/showPageDetail/<?= $count->page_code ?>" class="text-blue-500 underline"><?= $count->page_code ?></a>
+                            <input class="w-full" type="text" value="<?= $page['user_agent'] ?>">
                         </td>
-                        <td class="border border-slate-400 text-right"><?= number_format($count->total) ?></td>
+                        <td class="border border-slate-400 text-center"><?= $page['time'] ?></td>
+                        <td class="border border-slate-400 text-center"><?= $page['date'] ?></td>
                     </tr>
                     @endforeach
+
                 </tbody>
 
             </table>
