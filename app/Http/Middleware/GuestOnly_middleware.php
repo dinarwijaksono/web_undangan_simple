@@ -18,8 +18,8 @@ class GuestOnly_middleware
     {
         if (session()->has('username')) {
 
-            if (session()->get('username') != 'dinar') {
-                return redirect('/Auth/login');
+            if (session()->get('login-status') == 'login-true') {
+                return redirect('/Dashboard/index');
             }
         }
 

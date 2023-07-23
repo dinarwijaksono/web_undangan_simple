@@ -22,6 +22,8 @@
         <section class="bg-white m-2 p-2">
             <h1 class="text-center mb-4 font-bold">LOGIN</h1>
 
+            <p><?= session()->get('username') ?></p>
+
             @if (session()->has('loginFailed'))
             <div class="p-2 mb-2 bg-red-100 text-red-500 border border-red-500 text-[12px] italic">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, eveniet?</p>

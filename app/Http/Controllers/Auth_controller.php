@@ -37,4 +37,12 @@ class Auth_controller extends Controller
             return redirect()->back()->with('loginFailed', "Login gagal.");
         }
     }
+
+
+    public function logout()
+    {
+        $this->authService->logout();
+
+        return redirect('/Auth/login');
+    }
 }

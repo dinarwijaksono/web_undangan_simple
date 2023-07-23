@@ -12,10 +12,16 @@ class Auth_service
         $password = 'rahasia';
 
         if ($username == $request->username && $password == $request->password) {
-            session()->put('username', $username);
+            session()->put('login-status', "login-true");
             return true;
         }
 
         return false;
+    }
+
+
+    public function logout()
+    {
+        session()->forget('login-status');
     }
 }

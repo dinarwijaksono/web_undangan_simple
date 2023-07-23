@@ -37,6 +37,8 @@ Route::get('/login', [Auth_controller::class, 'login'])->middleware(GuestOnly_mi
 Route::get('/Auth/login', [Auth_controller::class, 'login'])->middleware(GuestOnly_middleware::class);
 
 Route::post('/Auth/login', [Auth_controller::class, 'doLogin'])->middleware(GuestOnly_middleware::class);
+
+Route::post('/Auth/logout', [Auth_controller::class, 'logout']);
 /* end Auth_controller */
 
 /* dashboard_controller */

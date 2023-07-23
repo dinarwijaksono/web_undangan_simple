@@ -16,8 +16,8 @@ class MemberOnly_middleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has('username')) {
-            if (session()->get('username') == 'dinar') {
+        if (session()->has('login-status')) {
+            if (session()->get('login-status') == 'login-true') {
                 return $next($request);
             }
         }
